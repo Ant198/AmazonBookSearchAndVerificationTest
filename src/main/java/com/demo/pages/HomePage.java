@@ -12,10 +12,6 @@ public class HomePage extends PageTools {
         return getWebElement(By.xpath("//select[@id='searchDropdownBox']/option[text()='" + text + "']"));
     }
 
-    public WebElement getInputField() {
-        return getWebElement(inputField);
-    }
-
     public void setFilter(String text) {
         clickIfExist(searchDropdownBox);
         click(By.xpath("//select[@id='searchDropdownBox']//option[text()='" + text + "']"));

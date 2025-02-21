@@ -12,8 +12,4 @@ public class ResultPage extends PageTools {
     public List<SelenideElement> getResultElements() {
         return getElements(results);
     }
-
-    public List<String> getTexts(By by) {
-        return getElementsText(by);
-    }
 }
