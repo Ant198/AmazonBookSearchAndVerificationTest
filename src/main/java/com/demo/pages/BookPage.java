@@ -13,7 +13,6 @@ public class BookPage extends PageTools {
     private final By bestSeller = By.xpath("//div[@id=\"zeitgeistBadge_feature_div\"]");
 
     public BookActions getBook() {
-        System.out.println("3");
         BookActions book = Actions.bookActions();
         book.setName(getElementText(name));
         book.setAuthor(getElementText(author));
