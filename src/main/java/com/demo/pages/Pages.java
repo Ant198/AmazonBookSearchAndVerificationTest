@@ -4,7 +4,7 @@ import com.demo.core.allure.AllureLogger;
 
 public class Pages extends AllureLogger {
     private static HomePage homePage;
-    private static ResultPage resultPage;
+    private static SearchResultPage searchResultPage;
     private static BookPage bookPage;
 
     public static HomePage homePage() {
@@ -14,11 +14,11 @@ public class Pages extends AllureLogger {
         return homePage;
     }
 
-    public static ResultPage resultPage() {
-        if (resultPage == null) {
-            resultPage = new ResultPage();
+    public static SearchResultPage searchResultPage() {
+        if (searchResultPage == null) {
+            searchResultPage = new SearchResultPage();
         }
-        return resultPage;
+        return searchResultPage;
     }
 
     public static BookPage bookPage() {

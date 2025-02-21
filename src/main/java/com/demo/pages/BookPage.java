@@ -11,13 +11,16 @@ public class BookPage extends PageTools {
     private final By author = By.xpath("//div[@id=\"bylineInfo\"]//span[1]//a");
     private final By price = By.xpath("//div[@id=\"tmm-grid-swatch-PAPERBACK\"]//span[@class=\"slot-price\"]//span");
     private final By bestSeller = By.xpath("//div[@id=\"zeitgeistBadge_feature_div\"]");
+    BookActions book = Actions.bookActions();
 
-    public BookActions getBook() {
-        BookActions book = Actions.bookActions();
+    public void setBook() {
         book.setTitle(getElementText(name));
         book.setAuthor(getElementText(author));
         book.setPrice(getElementText(price));
         book.setBestSeller(isCondition(Condition.exist, bestSeller) ? "Yes" : "No");
+    }
+
+    public BookActions getBook() {
         return book;
     }
 }

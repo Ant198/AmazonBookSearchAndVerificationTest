@@ -9,12 +9,14 @@ public class HomePage extends PageTools {
     private final By inputField = By.xpath("//input[@id='twotabsearchtextbox']");
 
     public WebElement getDropdownBox(String text) {
-        return getWebElement(By.xpath("//select[@id='searchDropdownBox']/option[text()='" + text + "']"));
+        String option = String.format("//select[@id='searchDropdownBox']/option[text()='%s']", text);
+        return getWebElement(By.xpath(option));
     }
 
     public void setFilter(String text) {
+        String option = String.format("//select[@id='searchDropdownBox']/option[text()='%s']", text);
         clickIfExist(searchDropdownBox);
-        click(By.xpath("//select[@id='searchDropdownBox']//option[text()='" + text + "']"));
+        click(By.xpath(option));
     }
 
     public void typeText(String text) {
