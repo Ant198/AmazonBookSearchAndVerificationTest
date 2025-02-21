@@ -14,7 +14,7 @@ public class BookPage extends PageTools {
 
     public BookActions getBook() {
         BookActions book = Actions.bookActions();
-        book.setName(getElementText(name));
+        book.setTitle(getElementText(name));
         book.setAuthor(getElementText(author));
         book.setPrice(getElementText(price));
         book.setBestSeller(isCondition(Condition.exist, bestSeller) ? "Yes" : "No");

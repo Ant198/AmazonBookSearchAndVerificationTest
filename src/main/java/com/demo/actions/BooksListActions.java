@@ -9,7 +9,7 @@ import java.util.List;
 import com.demo.pages.Pages;
 
 public class BooksListActions {
-    private List<BookActions> booksList;
+    private final List<BookActions> booksList;
 
     public BooksListActions() {
         this.booksList = new ArrayList<>();
@@ -21,12 +21,12 @@ public class BooksListActions {
 
         for(SelenideElement book : books) {
             BookActions bookInfo = Actions.bookActions();
-            String name;
+            String title;
             String author = "";
             String price;
             String bestSeller;
-            name = book.$(By.xpath(".//h2//span")).text();
-            bookInfo.setName(name);
+            title = book.$(By.xpath(".//h2//span")).text();
+            bookInfo.setTitle(title);
             ElementsCollection elements = book.$$(By.className("a-size-base"));
             for (int i = 0; i < elements.size(); i++) {
                 if (elements.get(i).getText().equals("by")) {

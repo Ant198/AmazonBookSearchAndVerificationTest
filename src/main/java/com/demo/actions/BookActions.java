@@ -3,15 +3,15 @@ package com.demo.actions;
 import java.util.Objects;
 
 public class BookActions {
-    private String name;
+    private String title;
     private String author;
     private String price;
     private String bestSeller;
 
-    public void setName(String text) {
-        this.name = text;
+    public void setTitle(String text) {
+        this.title = text;
     }
-    public String getName() { return name; }
+    public String getTitle() { return title; }
     public void setAuthor(String text) {
         this.author = text;
     }
@@ -28,7 +28,7 @@ public class BookActions {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         BookActions book = (BookActions) obj;
-        return Objects.equals(name, book.name)
+        return Objects.equals(title, book.title)
                 && Objects.equals(author, book.author)
                 && Objects.equals(price, book.price)
                 && Objects.equals(bestSeller, book.bestSeller);
@@ -36,7 +36,7 @@ public class BookActions {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, author, price, bestSeller);
+        return Objects.hash(title, author, price, bestSeller);
     }
 
 }

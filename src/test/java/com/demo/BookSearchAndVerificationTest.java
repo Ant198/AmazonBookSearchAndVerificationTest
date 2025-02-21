@@ -1,6 +1,5 @@
 package com.demo;
 
-import com.codeborne.selenide.SelenideElement;
 import com.demo.actions.Actions;
 import com.demo.actions.BookActions;
 import com.demo.actions.BooksListActions;
@@ -12,8 +11,6 @@ import com.demo.utils.Constants;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
@@ -21,7 +18,7 @@ import java.util.List;
 
 @Epic("Test Epic")
 @Feature("Test feature")
-@Owner("QA Bohomazov Dmytro")
+@Owner("QA Fedorov Anton")
 
 public class BookSearchAndVerificationTest extends BaseTest {
 
@@ -47,7 +44,7 @@ public class BookSearchAndVerificationTest extends BaseTest {
         BookActions expectedBook = bookPage.getBook();
 
         for(BookActions book : books) {
-            Assert.assertTrue(book.getName().contains(searchWord), "some books do not have 'java' in a title");
+            Assert.assertTrue(book.getTitle().contains(searchWord), "some books do not have 'java' in a title");
         }
         Assert.assertTrue(currentUrl.contains(Constants.URL), "page not found");
         Assert.assertTrue(homePage.getDropdownBox(fillterWord).isSelected(), "filter not selected");
