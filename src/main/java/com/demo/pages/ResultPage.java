@@ -7,16 +7,13 @@ import java.util.List;
 
 public class ResultPage extends PageTools {
 
-    public ResultPage() {
-        super();
-    }
-
     private final By results = By.xpath("//div[@role='listitem']");
 
-    public List<SelenideElement> receiveElements() {
+    public List<SelenideElement> getResultElements() {
         return getElements(results);
     }
-    public String getText(By by) {
-        return getElementsText(by).get(0);
+
+    public List<String> getTexts(By by) {
+        return getElementsText(by);
     }
 }

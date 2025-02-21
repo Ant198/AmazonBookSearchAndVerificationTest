@@ -7,12 +7,17 @@ import org.openqa.selenium.By;
 import java.util.ArrayList;
 import java.util.List;
 import com.demo.pages.Pages;
-public class BooksListActions {
 
-    public List<BookActions> getBooksList() {
+public class BooksListActions {
+    private List<BookActions> booksList;
+
+    public BooksListActions() {
+        this.booksList = new ArrayList<>();
+    }
+
+    public void setBooksList() {
         ResultPage resultPage = Pages.resultPage();
-        List<BookActions> booksList = new ArrayList<>();
-        List<SelenideElement> books = resultPage.receiveElements();
+        List<SelenideElement> books = resultPage.getResultElements();
 
         for(SelenideElement book : books) {
             BookActions bookInfo = Actions.bookActions();
@@ -40,6 +45,8 @@ public class BooksListActions {
             bookInfo.setBestSeller(bestSeller);
             booksList.add(bookInfo);
         }
+    }
+    public List<BookActions> getBooksList() {
         return booksList;
     }
 }

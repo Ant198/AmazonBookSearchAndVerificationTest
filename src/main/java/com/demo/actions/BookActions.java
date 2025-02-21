@@ -11,6 +11,7 @@ public class BookActions {
     public void setName(String text) {
         this.name = text;
     }
+    public String getName() { return name; }
     public void setAuthor(String text) {
         this.author = text;
     }
