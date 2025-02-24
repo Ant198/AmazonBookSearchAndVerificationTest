@@ -1,26 +1,24 @@
 package com.demo.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demo.actions.Actions;
-import com.demo.actions.BookActions;
 import com.demo.core.base.PageTools;
+import com.demo.models.BookModels;
+import com.demo.models.Models;
 import org.openqa.selenium.By;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResultPage extends PageTools {
     private final By results = By.xpath("//div[@role='listitem']");
-    private final List<BookActions> booksList;
+    private final List<BookModels> booksList;
 
     public SearchResultPage() {
         this.booksList = new ArrayList<>();
     }
 
     public void setBooksList() {
-        System.out.println(getElements(results).size());
         for(int i = 1; i <= getElements(results).size(); i++) {
-            BookActions bookInfo = Actions.bookActions();
+            BookModels bookInfo = Models.bookModels();
             String title;
             String author = "";
             String price;
@@ -40,11 +38,10 @@ public class SearchResultPage extends PageTools {
                     break;
                 }
             }
-            System.out.println(author);
             bookInfo.setAuthor(author);
             price = getElementsText(priceLocator).get(0);
             bookInfo.setPrice(price);
-            if (getWebElement(bestSellerLocator).isDisplayed()) {
+            if (!getElementsWithZeroOption(bestSellerLocator).isEmpty()) {
                 bestSeller = "yes";
             } else {
                 bestSeller = "no";
@@ -53,7 +50,7 @@ public class SearchResultPage extends PageTools {
             booksList.add(bookInfo);
         }
     }
-    public List<BookActions> getBooksList() {
+    public List<BookModels> getBooksList() {
         return booksList;
     }
 }

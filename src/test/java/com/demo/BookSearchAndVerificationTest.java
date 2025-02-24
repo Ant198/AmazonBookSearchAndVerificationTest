@@ -1,11 +1,8 @@
 package com.demo;
 
 import com.demo.actions.Actions;
-import com.demo.actions.BookActions;
-import com.demo.actions.BooksListActions;
 import com.demo.core.base.BaseTest;
-import com.demo.pages.BookPage;
-import com.demo.pages.HomePage;
+import com.demo.models.BookModels;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
 import io.qameta.allure.Epic;
@@ -14,7 +11,6 @@ import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
-import java.util.List;
 
 @Epic("Test Epic")
 @Feature("Test feature")
@@ -38,7 +34,7 @@ public class BookSearchAndVerificationTest extends BaseTest {
 
         Pages.bookPage().setBook();
 
-        for(BookActions book : Pages.searchResultPage().getBooksList()) {
+        for(BookModels book : Pages.searchResultPage().getBooksList()) {
             Assert.assertTrue(book.getTitle().contains(searchWord), "some books do not have 'java' in a title");
         }
         Assert.assertTrue(Actions.mainActions().getCurrentUrl().contains(Constants.URL), "page not found");

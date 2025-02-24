@@ -5,7 +5,7 @@ import com.demo.core.allure.AllureLogger;
 public class Pages extends AllureLogger {
     private static HomePage homePage;
     private static SearchResultPage searchResultPage;
-    private static BookPage bookPage;
+    private static BookInfoPage bookPage;
 
     public static HomePage homePage() {
         if (homePage == null) {
@@ -21,9 +21,9 @@ public class Pages extends AllureLogger {
         return searchResultPage;
     }
 
-    public static BookPage bookPage() {
+    public static BookInfoPage bookPage() {
         if (bookPage == null) {
-            bookPage = new BookPage();
+            bookPage = new BookInfoPage();
         }
         return bookPage;
     }

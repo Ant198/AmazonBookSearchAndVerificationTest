@@ -1,8 +1,8 @@
-package com.demo.actions;
+package com.demo.models;
 
 import java.util.Objects;
 
-public class BookActions {
+public class BookModels {
     private String title;
     private String author;
     private String price;
@@ -27,7 +27,7 @@ public class BookActions {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        BookActions book = (BookActions) obj;
+        BookModels book = (BookModels) obj;
         return Objects.equals(title, book.title)
                 && Objects.equals(author, book.author)
                 && Objects.equals(price, book.price)
