@@ -16,9 +16,7 @@ public class BookInfoPage extends PageTools {
     public void setBook() {
         book.setTitle(getElementText(name));
         book.setAuthor(getElementText(author));
-        System.out.println(getElementText(price));
         book.setPrice(getElementText(price));
-        System.out.println(isCondition(Condition.exist, bestSeller));
         book.setBestSeller(isCondition(Condition.exist, bestSeller) ? "Yes" : "No");
     }
 

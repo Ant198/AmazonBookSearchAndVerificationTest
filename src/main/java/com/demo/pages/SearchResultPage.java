@@ -26,8 +26,8 @@ public class SearchResultPage extends PageTools {
             String mainPath = String.format("(//div[@role='listitem'])[%d]", i);
             By titleLocator = By.xpath(mainPath + "//h2//span");
             By authorLocator = By.xpath(mainPath + "//*[contains(@class, \"a-size-base\")]");
-            By priceLocator = By.xpath(mainPath + "//span[@class=\"a-offscreen\"]");
-            By bestSellerLocator = By.xpath(mainPath + "//span[@class=\"a-badge-text\"]");
+            By priceLocator = By.xpath(mainPath + "//span[contains(@class, \"a-offscreen\")]");
+            By bestSellerLocator = By.xpath(mainPath + "//span[contains(@class, \"a-badge-text\")]");
 
             title = getElementText(titleLocator);
             bookInfo.setTitle(title);
